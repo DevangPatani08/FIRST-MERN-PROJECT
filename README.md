@@ -1,0 +1,7 @@
+# MERN PROJECT
+
+    M: MONGO DB
+    E: EXPRESS JS
+    R: REACT JS
+    N: NODE JS
+
