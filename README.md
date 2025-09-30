@@ -67,3 +67,31 @@
 
 > npm i react-router-dom / npm install react-router-dom
 
+- We will add the a new pages folder in the src folder with a "Home.js" file for the code for the home page.
+- We will add the a new components folder in the src folder with a "Navbar.js" file for the code for the navbar components.
+
+### 2.2 Connecting Backend & Frontend
+- We will use the useEffect hook & fetch method to fetch the data from the api every time the home page is loaded.
+- We will add a proxy in the package.json file inside the frontend folder to create a proxy server with the url of the server.js file.
+- Then we will use the map method to map through the data in json format into the html code & display it on the home page.
+
+### 2.4 Workout Details Display
+- Now create a new component under components folder named "WorkoutDetails.js".
+- We will pass the _id as key & workout as props into the component.
+- Add CSS in the index.css
+
+### 2.5 Workout Form
+- Now create a new component under components folder named "WorkoutForm.js".
+- Add the component to the home.js file.
+- Write the code for the form component & add the css in the index.css for the form.
+- Now there is only one drawback that we need to refresh the page to view the changes.
+
+### 2.5 React Context & useReducer Hook
+- We will get rid of the refresh page drawback by using the local storage.
+- Create a folder named "context" under the src folder with a file named "WorkoutContext.js" for global access.
+- we will create a WorkoutContextProvider in the WorkoutContext.js file.
+- Now we will wrap our App in the WorkoutContextProvider in the index.js file.
+- Create a reducer which will act based on the action.type that will be triggered.
+- Pass the state and dispatch as values.
+- Create a folder named "hooks" under the src folder with a file named "useWorkoutsContext.js" as a custom hook.
+- Now use the hook globally by importing it into respective files and use dispatch method to dispatch the type of action needs to be taken.
