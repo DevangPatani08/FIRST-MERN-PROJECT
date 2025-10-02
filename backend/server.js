@@ -1,6 +1,9 @@
 // Import workout routes
 const workoutRoutes = require('./routes/workout.js');
 
+// Import user routes
+const userRoutes = require('./routes/user.js');
+
 // Import express
 const express = require('express');
 
@@ -31,7 +34,8 @@ app.get("/", (req, res) => {
     });
 });
 
-app.use('/api/workouts/', workoutRoutes);
+app.use('/api/workouts', workoutRoutes);
+app.use('/api/user', userRoutes);
 
 // Connection to DB
 mongoose.connect(process.env.MONGO_URL).then(() => {

@@ -128,3 +128,53 @@ form button {
   background-color: var(--error);
   color: #fff;
 }
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+nav a {
+  margin-left: 10px;
+}
+
+.signup, .login {
+  max-width: 400px;
+  margin: 40px auto;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 24px;
+}
+
+.signup button, .login button {
+  width: 100%;
+  font-size: 1rem;
+  line-height: 100%;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.signup h4, .login h4 {
+  width: 100%;
+  font-size: 1.75rem;
+  line-height: 110%;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+nav button {
+  background-color: #FFF;
+  color: var(--primary);
+  font-size: 1rem;
+  line-height: 100%;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  border: 1px solid var(--primary);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  margin-left: 12px;
+}
+

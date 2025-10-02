@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 // GET all workouts
 exports.getAllWorkouts = async (req, res) => {
     try {
-        const allWorkouts = await Workout.find().sort({ createdAt: -1 });
+        const user_id = req.user._id;
+        const allWorkouts = await Workout.find({user_id}).sort({ createdAt: -1 });
         res.status(200).json(allWorkouts);
     } catch (err) {
         res.status(400).json({error: err.message});
@@ -29,7 +30,8 @@ exports.createWorkout = async (req, res) => {
 
     // try doc to DB
     try {
-        const newWorkout = await Workout.create({ title, reps, load });
+        const user_id = req.user._id;
+        const newWorkout = await Workout.create({ title, reps, load, user_id });
         res.status(200).json(newWorkout);
     } catch (err) {
         res.status(400).json({ error: err.message });

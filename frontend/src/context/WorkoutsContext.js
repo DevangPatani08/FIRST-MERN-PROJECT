@@ -6,10 +6,10 @@ export const workoutsReducer = (state, action) => {
     switch (action.type) {
         case 'SET_WORKOUTS':
             return { workouts: action.payload }
-        case 'CREATE_WORKOUTS':
+        case 'CREATE_WORKOUT':
             return { workouts: [action.payload, ...state.workouts] }
-        case 'DELETE_WORKOUTS':
-            return state;
+        case 'DELETE_WORKOUT':
+            return { workouts: state.workouts.filter((each) => each.id !== action.payload._id)};
         default:
             return state;
     }
