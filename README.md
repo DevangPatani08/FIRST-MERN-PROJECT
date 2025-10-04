@@ -101,6 +101,27 @@
 
 - Finally we add the delete button and the icon from the react icons library along with the logic to handle the button click.
 
+### 2.6 Delete card data
+- We will add a span with a onClick listener named "handleClick" were we will simply fetch the data for the id of the card and will dispatch the delete context from the workoutsContext file.
+- We have previously declared a DELETE_WORKOUT in the workout context text switch case, now we will replace the state with the delete logic i.e. we will filter the the data with a matching _id and delete only that particular card data.
+
+### 2.7 Handling Error Response
+- We display the error below the form but it is not descriptive enough and we also want the fields to show change on error occurrence.
+- For that we will go to the backend inside the controller where the error is generated.
+- Under thee createWorkout controller we will add some additional checks.
+- we will create a empty field array initial empty and using a if else if ladder we will check is any of the fields are empty and if empty they will be pushed into the array.
+- Finally if the length of the array is greater than 0, then return a error.
+- We will create a useState named emptyFields and set the field values base on the error occurrence.
+- After setting the emptyFields we will check for each input if their type is present in the array is yes the add the css className error defined under index.css file.
+
+### MERN Finishing Touch
+- Finally there are some finishing touches left, such as the createdAt date format and the icon for the delete button.
+- For that we will go to the material symbols and import the delete trash icon, copy the link to the index.html file under the head tags.
+- The index.html file will be present under the public folder inside our frontend folder.
+- Now simply add the className and text to out span inside the workout details component.
+- You can give additional css using the normal css file.
+- 
+
 
 ## 3 MERN Authentication
 
@@ -242,3 +263,16 @@
 - After this we will add the user id in the workouts controllers.
 - We will add user_id when the workout is created and when we fetch all the workouts we will add user_id as a condition while find method is called.
 - Also for the display of data after logout, we will add dispatch for workout context as well in the useLogout hook. 
+
+
+
+vercel.json
+
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

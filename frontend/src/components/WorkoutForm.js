@@ -8,6 +8,7 @@ const WorkoutForm = () => {
     const [reps, setReps] = useState('');
     const [load, setLoad] = useState('');
     const [error, setError] = useState('');
+    const [emptyFields, setEmptyFields] = useState([]);
     const { user } = useAuthContext();
 
     const handleSubmit = async (e) => {
@@ -26,6 +27,7 @@ const WorkoutForm = () => {
         
         if (!res.ok) {
             setError(json.error);
+            setEmptyFields(json.emptyFields);
         } else {
             setError(null);
             dispatch({type: 'CREATE_WORKOUT', payload: json})
@@ -33,6 +35,7 @@ const WorkoutForm = () => {
             setTitle('');
             setLoad('');
             setReps('');
+            setEmptyFields([]);
         }
     };
 
@@ -41,13 +44,13 @@ const WorkoutForm = () => {
             <h3>Add a new Workout</h3>
 
             <label>Exersice Title:</label>
-            <input type='text' value={title} onChange={(e) => setTitle(e.target.value)} />
+            <input type='text' value={title} onChange={(e) => setTitle(e.target.value)} className={emptyFields.includes('title') ? 'error' : ''} />
             
             <label>Load (in Kgs):</label>
-            <input type='number' value={load} onChange={(e) => setLoad(e.target.value)} />
+            <input type='number' value={load} onChange={(e) => setLoad(e.target.value)} className={emptyFields.includes('load') ? 'error' : ''} />
             
             <label>Reps:</label>
-            <input type='number' value={reps} onChange={(e) => setReps(e.target.value)} />
+            <input type='number' value={reps} onChange={(e) => setReps(e.target.value)} className={emptyFields.includes('reps') ? 'error' : ''} />
 
             <button type='submit'>Add Workout</button>
             { error && <div className='error'>{error}</div> }

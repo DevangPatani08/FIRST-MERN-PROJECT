@@ -101,13 +101,17 @@ form button {
   cursor: pointer;
 }
 
-.error {
+div.error {
   padding: 16px;
   background-color: #ffdbdb;
   color: var(--error);
   margin: 20px 0;
   border-radius: 4px;
   font-size: 0.9rem;
+}
+
+input.error {
+  border: 1px solid var(--error);
 }
 
 .workout-details button {
